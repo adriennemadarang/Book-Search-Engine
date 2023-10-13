@@ -16,6 +16,7 @@ const resolvers = {
 
     Mutation: {
         login: async (parent, { email, password }) => {
+            console.log('HI');
             const user = await User.findOne({ email });
 
             if (!user) {
@@ -37,7 +38,7 @@ const resolvers = {
             return { token, user };
         },
 
-        saveBook: async (parent, { bookData }, context) => {
+        saveBook: async (parent, { boouserkData }, context) => {
             if (context.user) { 
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
